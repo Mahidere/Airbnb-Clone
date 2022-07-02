@@ -5,8 +5,13 @@ import { Container } from "@mui/system";
 import Logo from "./Logo";
 import LocationSearch from "./LocationSearch";
 
-import { flexBetweenCenter, dFlex } from "../themes/commonStyles";
+import {
+  flexBetweenCenter,
+  dFlex,
+  displayOnDesktop,
+} from "../themes/commonStyles";
 import ProfileSettings from "./ProfileSettings";
+import MobileSearch from "./MobileSearch";
 const Header = () => {
   return (
     <Box
@@ -24,9 +29,18 @@ const Header = () => {
             px: 4,
           }}
         >
-          <Logo />
-          <LocationSearch />
-          <ProfileSettings />
+          <Box sx={displayOnDesktop}>
+            <Logo />
+          </Box>
+          <Box sx={displayOnDesktop}>
+            <LocationSearch />
+          </Box>
+          <Box sx={displayOnDesktop}>
+            <ProfileSettings />
+          </Box>
+          <Box sx={{ display: { xd: "flex", md: "none" } }}>
+            <MobileSearch />
+          </Box>
         </Box>
       </Container>
     </Box>
